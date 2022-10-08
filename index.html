@@ -62,10 +62,10 @@
         <h2>Visualization of Motions in Online Experiments</h2>
         <hr>
         <p>
-            We evaluate Prompt-DT in five environments that are widely used in offline meta-RL literature, including Cheetah-dir, Cheetah-vel, Ant-dir, Dial, and Metaworld-reach-v2.
-            We compare Prompt-DT with Prompt-based Behavior Cloning (Prompt-MT-BC) to ablate the effect of reward-to-go tokens, Multi-task Offline RL (MT-ORL) to ablate the efficiency of our proposed trajectory prompts, Multi-task Behavior Cloning (MT-BC-Finetune), and <a href="https://proceedings.mlr.press/v139/mitchell21a.html">Meta-Actor Critic with Advantage Weighting (MACAW)</a> [Mitchell et al., 2021].
-            <!-- <br> -->
-            We find that Prompt-DT achieves high episodic accumulated rewards in never-before-seen tasks across environments by matching the task-specific information stored in a short trajectory prompt.        </p>
+            General knowledge learning not only aims to improve the mathematical metrics, but also the motion reasonability from human's viewpoint. It is difficult for traditional RL to work on this issue which only solve the mathematical optimization problem. By jointly learning other agent's imitation and bridge with the agent's self-experiences, we assume ODM could obtain more universal intelligence about body control by solving many different types of problems. Here we provide some quick visualizations about generated motions of ODM, comparing with the original versions.       
+
+            By examining the agent motion's rationality and smoothness, we visualize motions of trained models on the walker environment. Since the walker agent has a human-like body (the 'ragdoll') such that reader could easily evaluate the motion reasonability based on real life experiences. In this experiment, we force the agent starts from exact the same state and remove the process noise. By comparing ODM (the bottom line) with PPO (the upper line), one can see the ODM behaves more like human while PPO keep swaying forwards and backwards and side to side, with unnatural movements such as lowering shoulders and twisting waist.
+        </p>
         <!-- <div class="col justify-content-center text-center">
             <div class="col-sm-12">
                 <img src="img/main_final.png" style="width:100%">
