@@ -114,24 +114,20 @@
 
 
     <div class="section">
-        <h2>Few-Shot Policy Generalization to Out-of-distribution Tasks</h2>
+        <h2>Pretraining</h2>
         <hr>
         <div class="row justify-content-left">
             
             <div class="col-sm-7">
                 <br>
                 <p>
-                    We desire to test whether trajectory prompts enable the extrapolation ability when handling tasks with goals out of the training ranges. 
-                    We sample 8 training tasks in Ant-dir and 3 testing tasks, two of which have indexes smaller than the minimum task index and one larger than the maximum. 
-                    The task index is proportional to the desired direction angle. 
-                    <!-- <br> -->
-                    We find that Prompt-DT still performs better than baselines with no prompt augmentations.
+                    Model is trained with datasets of hopper, halfcheetah, walker2d, ant, walker and unimal, from the easiest to the most complex. From the pretraining plot, one can observe that the training loss successfully converges within each curriculum course; although its absolute value occasionally jumps to different levels because of the environment (and the teacher) switching. Validation set accuracy (Green: validation mse of walker; Blue: validation mse of unimal) is also improved with walker and unimal as exhibition examples in the figure.
                 </p>
             </div>
             <!-- <div class="col-sm-1">
             </div> -->
             <div class="col-sm-5">
-                <img src="./ODM/Ant-dir-ood-1441-rebuttal.png" style="width:100%">
+                <img src="./ODM/pretraining_loss.png" style="width:100%">
             </div>
         </div>
 
