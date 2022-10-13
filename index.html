@@ -125,13 +125,37 @@
             <div class="col-sm-7">
                 <br>
                 <p>
-                    We attempt to capture the above considerations by a framework called Online Decision Metamorphformer (ODM). ODM aims to study the general knowledge of embodied control across different body shapes, environments and tasks, as indicated in Figure \ref{fig:pipline}. The model architecture contains the universal backbone and the task-specific modules. The morphology-aware auto-encoder is employed to encode states and actions and map to the same latent space. A casual transformer is then applied on this sequence problem to learn the general control knowledge, but with a morphological prompt to capture each body shape's characteristic. We first pretrain this model with a curriculum learning, by learning the demonstration from the easiest to the hardest task, from the expert to low-level players. The world model prediction is added as an auxiliary loss. The same architecture can then be applied in the online finetuning with the very last action trained with on-policy reinforce, and another value prediction head is added and learned by bootstrap method. During the test, we are able to test ODM with all training environments, transfer the policy to different body shapes, adaptive to unseen environments and accommodate with new types of tasks (e.g. from locomotion to reaching, target capturing or escaping from obstacles.).
+                    We attempt to capture the above considerations by a framework called Online Decision Metamorphformer (ODM). ODM aims to study the general knowledge of embodied control across different body shapes, environments and tasks, as indicated in the figure. The model architecture contains the universal backbone and the task-specific modules. The morphology-aware auto-encoder is employed to encode states and actions and map to the same latent space. A casual transformer is then applied on this sequence problem to learn the general control knowledge, but with a morphological prompt to capture each body shape's characteristic. We first pretrain this model with a curriculum learning, by learning the demonstration from the easiest to the hardest task, from the expert to low-level players. The world model prediction is added as an auxiliary loss. The same architecture can then be applied in the online finetuning with the very last action trained with on-policy reinforce, and another value prediction head is added and learned by bootstrap method. During the test, we are able to test ODM with all training environments, transfer the policy to different body shapes, adaptive to unseen environments and accommodate with new types of tasks (e.g. from locomotion to reaching, target capturing or escaping from obstacles.).
                 </p>
             </div>
             <!-- <div class="col-sm-1">
             </div> -->
             <div class="col-sm-5">
                 <img src="./ODM/application_pipeline.png" style="width:100%">
+            </div>
+        </div>
+
+    </div>
+
+    <br>
+
+
+
+    <div class="section">
+        <h2>Model Architecture</h2>
+        <hr>
+        <div class="row justify-content-left">
+            
+            <div class="col-sm-7">
+                <br>
+                <p>
+                    Our ODM model structure contains a unified backbone and task-specific modules. Since our model deals with state and action variables in continuous spaces, the task-specific modules manage to map these original variables into a uniform-dimensional latent variable space, as the embedding; and map the predicted latent variable back to their original space, i.e., the projectors. The backbone has a two-directional, morphology-time transformer structure, including auto-encoders which encodes the pose embedding information, and a casual transformer which deal with the time-dependent decision making process. Architecture details are specified in the figure.
+                </p>
+            </div>
+            <!-- <div class="col-sm-1">
+            </div> -->
+            <div class="col-sm-5">
+                <img src="./ODM/model_structure.png" style="width:100%">
             </div>
         </div>
 
